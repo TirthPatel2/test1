@@ -21,6 +21,14 @@
  * 
  */
 function lineOrdering(strArr) {
+    strArr=strArr.map(element=>{
+        if(element.length >3){
+            let personA = strArr.slice(0,1);
+            let personB = strArr.slice(element.length-1);
+            element = `${personA}<${personB}`;
+        }
+        return element;
+    });
     // Unique people
     const people = Array.from(new Set(strArr.join(',').match(/[A-Z]+/g)));
     // const temp = permutatePeople([...people]);
